@@ -1,0 +1,35 @@
+
+  <div class="popup-content">
+
+<form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="date">التاريخ:</label>
+      <input id="date" type="date" formControlName="date" [value]="DateNow | date:'dd-MM-yyyy'">
+    </div>
+    
+    <div>
+      <label for="time">الوقت:</label>
+      <input id="time" type="time" formControlName="time">
+    </div>
+    
+    <div>
+      <label for="phoneNumber">رقم الهاتف:</label>
+      <input id="phon_number" type="text" formControlName="phon_number">
+    </div>
+    
+    <div>
+      <label for="issues">شرح المشكلة:</label>
+      <textarea id="issues" formControlName="issues"></textarea>
+    </div>
+  
+    <button type="submit">إرسال</button>&nbsp; 
+
+    <button type="button" class="buttonclose" style="width: 370px;" (click)="onCancel()">إلغاء</button>
+
+  </form>
+  
+  <div *ngIf="!issueForm.valid">
+    <p>يرجى تعبئة جميع الحقول بشكل صحيح.</p>
+  </div>
+
+</div>

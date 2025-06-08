@@ -1,0 +1,20 @@
+
+<div class="content">
+<div class="doctors-container" >
+  <h1>قائمة الأطباء</h1>
+  <div class="doctor-card" *ngFor="let d of doctor">
+    <img 
+    src="/src/app/assets/d1.jpg" 
+    style="height: 120px; width: 120px; border-radius: 30%;" 
+    class="w-full h-auto" 
+    class="Image"
+/>
+
+      <h3>{{d.nameDoctor}}</h3>
+    <p>{{d.email}}</p>
+    <p>{{d.phone}}</p>
+    <button (click)="popup(d.id)">حجز</button>
+
+  </div>
+</div>
+</div>
