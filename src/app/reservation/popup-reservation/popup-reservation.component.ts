@@ -119,6 +119,8 @@ debugger
             this.SaveSuccess();
             this.dialogRef.close(false);
             this.router.navigate(['/myreservation']);
+            debugger
+            this.data.lodData()
 
           } else {
             this.SaveFaild();

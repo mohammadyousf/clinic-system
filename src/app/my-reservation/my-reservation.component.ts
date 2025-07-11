@@ -61,14 +61,17 @@ public userid :number | undefined |null
   editReservation(id:number) {
 
 
-
+    debugger
       let dialogRef: MatDialogRef<any> = this.dialog.open(PopupReservationComponent, {
         width: '550px',
         disableClose: true,
-        data: {idres:id}
+        data: {idres:id,lodData: ()=>{this.lodData(this.userid??0)} 
+        }
+        
       });
       
       dialogRef.afterClosed().subscribe(res => {
+        
         if (!res) {
           return;
         }
