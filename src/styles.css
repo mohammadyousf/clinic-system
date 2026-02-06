@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+.cdk-overlay-container {
+  position: fixed !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none;
+}
+
+.cdk-overlay-pane {
+  pointer-events: auto;
+  position: static !important;
+  transform: none !important;
+}

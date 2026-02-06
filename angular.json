@@ -39,13 +39,18 @@
                  
               }
             ],
-            "styles": [
+"styles": [
+  "src/styles/tailwind.css",
+  "src/styles/app.scss",
   "src/styles.css",
-  "node_modules/bootstrap/dist/css/bootstrap.min.css"
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+  "node_modules/primeicons/primeicons.css"
 ],
            "scripts": [
   "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 ]
+
 
           },
           "configurations": {

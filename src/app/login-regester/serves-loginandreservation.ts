@@ -23,12 +23,10 @@ AddNewUser(data: any): Observable<boolean> {
     })
   );
 }
+LoginUser(data: any): Observable<any> {
+  const apiUrl = 'https://localhost:7031/api/auth/LoginUser';
 
-
-LoginUser(data: any): Observable<string> {
-  const apiUrl = 'https://localhost:7031/api/loginandregester/LoginUser';
-
-  return this.http.post(apiUrl, data, { responseType: 'text' }).pipe(
+  return this.http.post<any>(apiUrl, data).pipe(
     catchError(error => {
       console.error('Error LoginUser:', error);
       return throwError(() => error); 

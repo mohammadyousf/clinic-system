@@ -1,0 +1,55 @@
+<div class="content">
+    <form [formGroup]="DoctorForm" (ngSubmit)="Submit()">
+
+        <div class="intro-y box p-5 mt-12 sm:mt-5">
+
+            <div class="card-header text-center">
+                <!-- <h4>{{}}</h4> -->
+            </div>
+
+            <div class="grid grid-cols-12 gap-5 mt-5">
+
+
+                <div class="col-span-12 sm:col-span-6 xxl:col-span-6 cursor-pointer">
+                    <label class="control-label mb-8">Doctor Name<span
+                            class="required-asterisk">*</span></label>
+
+                    <input  type="text"class="input w-full border mt-1"  
+                     formControlName="nameDoctor"/>
+                </div>
+
+                <div class="col-span-12 sm:col-span-6 xxl:col-span-6 cursor-pointer">
+                    <label class="control-label mb-8">Doctor Email<span
+                            class="required-asterisk">*</span></label>
+
+                    <input  type="text"   class="input w-full border mt-1"   formControlName="email"/>
+                </div>
+
+                    <div class="col-span-12 sm:col-span-6 xxl:col-span-6 cursor-pointer">
+                    <label class="control-label mb-8">Phon Number<span
+                            class="required-asterisk">*</span></label>
+
+                    <input  type="text"   class="input w-full border mt-1"   formControlName="doctorPonNumber"/>
+                </div>
+
+              
+                    <div class="col-span-12 sm:col-span-6 xxl:col-span-6 cursor-pointer">
+                    <label class="control-label mb-8">Password<span
+                            class="required-asterisk">*</span></label>
+
+                    <input  type="text"   class="input w-full border mt-1"   formControlName="password"/>
+                </div>
+
+
+
+
+            </div>
+
+         <div class="button-group">
+  <button type="button" class="btn btn-primary" (click)="Submit()">AddAction</button>
+  <button type="button" class="btn btn-secondary" (click)="dialogRef.close(false)">Cancel</button>
+</div>
+
+        </div>
+    </form>
+</div>

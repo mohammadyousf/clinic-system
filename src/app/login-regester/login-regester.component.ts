@@ -41,7 +41,16 @@ this.signupFormlogin=this.formgrup.group({
 
 
 onSubmit() {
-  debugger
+
+
+  if(this.signupForm.controls['password'].value<6){
+
+      alert('الرجاء إدخال 6 خانات على الأقل لكلمة المرور');
+    return
+    }
+
+
+
   if (this.signupForm.valid) {
     console.log('Form Submitted:', this.signupForm.value);
 
@@ -87,12 +96,21 @@ onSubmit2() {
     console.log('Form Submitted:', this.signupFormlogin.value);
 
     this.Servicloginandregester.LoginUser(this.signupFormlogin.value).subscribe(
-      (res: string) => {
-        console.log("✅ Token Received:", res);
-        debugger
-        localStorage.setItem('token', res);
+      (res: any) => {  
+        if (!res) {
+          this.UserNotFound();
+          return;
+        }
 
-        location.href = '/';
+        localStorage.setItem('token', res.token);
+
+
+          debugger
+        if (res.idDoctor === -1) {
+         window.location.href ='/dashboard';
+        } else {
+          window.location.href = '/';
+        }
       },
       (error) => {
         console.error("❌ فشل تسجيل الدخول:", error);
@@ -101,6 +119,7 @@ onSubmit2() {
     );
   }
 }
+
 
 
 

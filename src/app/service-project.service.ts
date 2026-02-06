@@ -29,7 +29,7 @@ private handleError(error: HttpErrorResponse) {
  }
   
 
-//test
+
 
 
 public SaveReservation(post: any): Observable<any> {
@@ -67,6 +67,11 @@ ediereservation(id:number): Observable<any> {
 
 
 
+
+  GetDataMedicalCenter(id:number): Observable<any> {
+    return this.http.get<any>(`https://localhost:7031/api/AddNewMedicalCenter/GetDataMedicalCenter/`+id);
+ }
+  
 
 
   }

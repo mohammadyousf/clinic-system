@@ -1,0 +1,115 @@
+<div class="intro-y box p-5 mb-5 border border-gray-200 rounded-xl bg-white">
+
+  <div class="flex items-center gap-2 mb-4">
+    <i class="pi pi-search text-green-600 text-lg"></i>
+    <h3 class="text-lg font-semibold text-gray-700">
+      Advanced Search
+    </h3>
+  </div>
+
+  <div class="grid grid-cols-12 gap-4 items-end">
+
+    <!-- Clinic Name -->
+    <div class="col-span-12 md:col-span-4">
+      <label class="block text-sm font-medium mb-1">
+        Clinic Name
+      </label>
+
+      <p-dropdown
+        class="w-full"
+        optionLabel="text"
+        optionValue="id"
+        [options]="DeptList"
+        [(ngModel)]="selectDept"
+        [filter]="true"
+        appendTo="body">
+      </p-dropdown>
+    </div>
+
+    <!-- Search Button -->
+    <div class="col-span-12 md:col-span-2">
+      <p-button
+      [style]="{
+    'background': '#22c55e',
+    'color': 'white',
+    'border-radius': '10px',
+    'padding': '10px 22px',
+    'font-weight': '600'
+  }"
+        label="Search"
+        icon="pi pi-search"
+        class="p-button-success w-full"
+        (click)="Search()">
+        
+      </p-button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="intro-y box p-5">
+
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-lg font-semibold text-gray-700">
+      Doctors / Offers List
+    </h2>
+
+    <p-button
+      label="Add New"
+      icon="pi pi-plus"
+      styleClass="border-0 shadow-md transition-all duration-300 hover:shadow-lg"
+      [style]="{
+        'background': '#22c55e',
+        'color': 'white',
+        'border-radius': '10px',
+        'padding': '10px 22px',
+        'font-weight': '600'
+      }"
+      (click)="Addnew()">
+    </p-button>
+  </div>
+
+
+
+  <p-table
+  [value]="ClincList"
+  [rows]="10"
+  [paginator]="true"
+  responsiveLayout="scroll"
+  styleClass="p-datatable-sm p-datatable-gridlines"
+  [rowHover]="true">
+
+  <ng-template pTemplate="header">
+    <tr class="bg-gray-100 text-sm">
+      <th class="text-center">Offer #</th>
+      <th class="text-center">Description</th>
+      <th class="text-center">Invoice Type</th>
+      <th class="text-center">Start Date</th>
+      <th class="text-center">End Date</th>
+      <th class="text-center">Gender</th>
+      <th class="text-center">Department</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </ng-template>
+
+
+
+  <td class="text-center">
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon color="primary">edit</mat-icon>
+      Edit
+    </button>
+    <button mat-menu-item>
+      <mat-icon color="warn">delete</mat-icon>
+      Delete
+    </button>
+  </mat-menu>
+</td>
