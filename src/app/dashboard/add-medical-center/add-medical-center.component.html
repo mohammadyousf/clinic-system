@@ -17,7 +17,7 @@
 
       <p-dropdown
         class="w-full"
-        optionLabel="text"
+        optionLabel="name"
         optionValue="id"
         [options]="DeptList"
         [(ngModel)]="selectDept"
@@ -50,11 +50,12 @@
 
 
 
+<p-confirmDialog styleClass="custom-confirm-dialog" appendTo="body"></p-confirmDialog>
 <div class="intro-y box p-5">
 
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-lg font-semibold text-gray-700">
-      Doctors / Offers List
+     Clinecs List
     </h2>
 
     <p-button
@@ -68,7 +69,7 @@
         'padding': '10px 22px',
         'font-weight': '600'
       }"
-      (click)="Addnew()">
+      (click)="Addnew(0)">
     </p-button>
   </div>
 
@@ -84,32 +85,42 @@
 
   <ng-template pTemplate="header">
     <tr class="bg-gray-100 text-sm">
-      <th class="text-center">Offer #</th>
-      <th class="text-center">Description</th>
-      <th class="text-center">Invoice Type</th>
-      <th class="text-center">Start Date</th>
-      <th class="text-center">End Date</th>
-      <th class="text-center">Gender</th>
-      <th class="text-center">Department</th>
+      <th class="text-center">Name Center</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Emaile</th>
+      <th class="text-center">PhonNumber</th>
       <th class="text-center">Actions</th>
     </tr>
   </ng-template>
 
+<ng-template pTemplate="body" let-item>
+  <tr>
+    <td class="text-center">{{item.nameCenter}}</td>
+    <td class="text-center">{{item.address}}</td>
+    <td class="text-center">{{item.email}}</td>
+    <td class="text-center">{{item.phonnumber}}</td>
 
+    <!-- Actions Column -->
+    
+ <td class="px-4 py-3 text-center border-b">
+          <div class="flex justify-center gap-2">
 
-  <td class="text-center">
-  <button mat-icon-button [matMenuTriggerFor]="userMenu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
+            <button
+              class="text-blue-600 hover:text-blue-800 transition"
+              title="Edit" (click)="Addnew(item.id)">
+              <i class="pi pi-pencil"></i>
+            </button>
 
-  <mat-menu #userMenu="matMenu">
-    <button mat-menu-item>
-      <mat-icon color="primary">edit</mat-icon>
-      Edit
-    </button>
-    <button mat-menu-item>
-      <mat-icon color="warn">delete</mat-icon>
-      Delete
-    </button>
-  </mat-menu>
-</td>
+            <button
+              class="text-red-600 hover:text-red-800 transition"
+              title="Delete" (click)="delete(item.id)">
+              <i class="pi pi-trash"></i>
+            </button>
+
+          </div>
+        </td>
+
+  </tr>
+</ng-template>
+</p-table>
+<p-confirmDialog key="deleteDialog" [rtl]="true" [style]="{width: '450px'}"></p-confirmDialog>

@@ -12,9 +12,7 @@ import { AddDoctorComponent } from '../add-doctor/add-doctor.component';
 export class AddNewMedicalCenterComponent {
 medicalcenterForm:any;
 DoctorList: any[] = [];
-OnSaveForms(){
 
-}
 
 openAddOfferPopUp(){
 
@@ -56,11 +54,11 @@ else{
 
 
  this.medicalcenterForm.controls['id'].setValue(res.id);
- this.medicalcenterForm.controls['namecenter'].setValue(res.namecenter);
+ this.medicalcenterForm.controls['namecenter'].setValue(res.nameCenter);
  this.medicalcenterForm.controls['address'].setValue(res.address);
  this.medicalcenterForm.controls['email'].setValue(res.email);
- this.medicalcenterForm.controls['phonnumber'].setValue(res.phonnumber);
-
+ this.medicalcenterForm.controls['phonnumber'].setValue(res.phonNumber);
+this.DoctorList=res.doctorInfo
 }
 
 
@@ -106,4 +104,57 @@ PushDoctorList(row: any,crruntrow: any,isNew: any){
 
 }
 
+
+
+OnSaveForms(){
+  
+const modelSave={
+Id: this.medicalcenterForm.controls['id'].value,
+NameCenter: this.medicalcenterForm.controls['namecenter'].value,
+Email: this.medicalcenterForm.controls['email'].value,
+PhonNumber: this.medicalcenterForm.controls['phonnumber'].value,
+Address:this.medicalcenterForm.controls['address'].value,
+DoctorInfo:this.DoctorList
+
+}
+
+this.serviceProjectService.SavMedicalCenter(modelSave).subscribe(res=>{
+  if(res){
+      this.SaveSuccess();
+
+
+  }
+  
+  else{
+      this.SaveFaild();
+
+
+
+  }
+})
+
+}
+
+SaveFaild() {
+  alert("فشل في الحفظ ❌");
+}
+SaveSuccess() {
+  alert("تم الحفظ بنجاح ✅");
+}
+
+
+
+
+refresOfferTable (data:any){
+  this.DoctorList =data
+
+}
+
+//delete row  after save
+onDelete(row: any) {
+  debugger
+  const index = this.DoctorList.indexOf(row);
+  this.DoctorList.splice(index, 1);
+  this.refresOfferTable(this.DoctorList)
+}
 }

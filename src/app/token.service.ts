@@ -4,7 +4,7 @@ import { jwtDecode } from 'jwt-decode';
 export interface JwtPayload {
   sub: string;
   UserId: number;
-  id_doctor: string;
+  IdDoctor: string;
   exp: number;
 }
 
@@ -31,6 +31,6 @@ export class TokenService {
 
   getDoctorId(): string | null {
     const decoded = this.getDecodedToken();
-    return decoded ? decoded.id_doctor : null;
+    return decoded ? decoded.IdDoctor : null;
   }
 }

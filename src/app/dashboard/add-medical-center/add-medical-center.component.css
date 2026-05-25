@@ -1,7 +1,20 @@
-:host ::ng-deep .p-dropdown {
-  width: 100%;
+/* تنسيق منطقة الأزرار وعمل مسافة بينها */
+::ng-deep .p-dialog-footer {
+    display: flex !important;
+    justify-content: center !important; /* لتوسيط الأزرار */
+    gap: 20px !important; /* هذه هي المسافة بين "نعم" و "إلغاء" */
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+    border-top: none !important;
 }
 
-:host ::ng-deep .p-button {
-  height: 42px;
+/* تنسيق إضافي لزر الإلغاء ليكون واضحاً كخيار ثانوي */
+::ng-deep .p-confirm-dialog .p-button-secondary {
+    margin-right: 0 !important; /* إلغاء أي مارجن قديم */
+    margin-left: 0 !important;
+}
+
+/* إذا أردت جعل الأزرار بعرض ثابت متناسق */
+::ng-deep .p-confirm-dialog .p-button {
+    min-width: 100px;
 }

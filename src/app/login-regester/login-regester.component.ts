@@ -89,6 +89,7 @@ SaveFaild() {
 UserNotFound() {
   alert(" يوجد خطاء با الايميل او الباسورد❌");
 }
+
 onSubmit2() {
   debugger;
 
@@ -106,7 +107,7 @@ onSubmit2() {
 
 
           debugger
-        if (res.idDoctor === -1) {
+        if (res.idDoctor === -1 || res.idDoctor > 0) {
          window.location.href ='/dashboard';
         } else {
           window.location.href = '/';
@@ -117,6 +118,9 @@ onSubmit2() {
         this.UserNotFound();
       }
     );
+  }else{
+              this.UserNotFound();
+
   }
 }
 

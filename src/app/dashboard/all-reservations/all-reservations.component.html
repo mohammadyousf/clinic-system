@@ -1,0 +1,46 @@
+
+  <p-table
+  [value]="ClincList"
+  [rows]="10"
+  [paginator]="true"
+  responsiveLayout="scroll"
+  styleClass="p-datatable-sm p-datatable-gridlines"
+  [rowHover]="true">
+
+  <ng-template pTemplate="header">
+    <tr class="bg-gray-100 text-sm">
+      <th class="text-center">ReservationId</th>
+      <th class="text-center">NameCenter</th>
+      <th class="text-center">DoctorName</th>
+      <th class="text-center">UserName</th>
+      <th class="text-center">ReservationDate</th>
+      <th class="text-center">TimeReservation</th>
+      <th class="text-center">PhonNumber</th>
+      <th class="text-center">issues</th>
+    </tr>
+  </ng-template>
+
+<ng-template pTemplate="body" let-item>
+  <tr>
+    <td class="text-center">{{item.reservationId}}</td>
+    <td class="text-center">{{item.nameCenter}}</td>
+    <td class="text-center">{{item.doctorName}}</td>
+    <td class="text-center">{{item.userName}}</td>
+    <td class="text-center">{{item.reservationDate | date:'dd/MM/yyyy'}}</td>
+    <td class="text-center">{{item.timeReservation}}</td>
+    <td class="text-center">{{item.phonNumber}}</td>
+    <td class="text-center">{{item.issues}}</td>
+
+    <!-- Actions Column -->
+    
+ <td class="px-4 py-3 text-center border-b">
+          <div class="flex justify-center gap-2">
+
+         
+
+          </div>
+        </td>
+
+  </tr>
+</ng-template>
+</p-table>

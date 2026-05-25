@@ -74,5 +74,35 @@ ediereservation(id:number): Observable<any> {
   
 
 
+ 
+public SavMedicalCenter(post: any): Observable<any> {
+  const httpOptions = { 
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }) 
+  };
+
+  return this.http.post<any>(
+    "https://localhost:7031/api/AddNewMedicalCenter/SavMedicalCenter/", 
+    JSON.stringify(post), 
+    httpOptions
+  ).pipe(
+    catchError(this.handleError)
+  );
+}
+
+
+  GetAllCenterByadmin(id:number): Observable<any> {
+    return this.http.get<any>(`https://localhost:7031/api/AddNewMedicalCenter/GetAllCenterByadmin/`+id);
+ }
+
+
+ DelteCenters(id:number): Observable<any> {
+  return this.http.get<any>(`https://localhost:7031/api/IndexPage/DelteCenters/`+id);
+}
+
+
+GetDataReservationByDoctor(Doctirid:number): Observable<any> {
+    return this.http.get<any>(`https://localhost:7031/api/AddNewMedicalCenter/GetDataReservationByDoctor/`+Doctirid);
+ }
+
   }
 

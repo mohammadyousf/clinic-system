@@ -103,11 +103,11 @@
 
             <button
               class="text-blue-600 hover:text-blue-800 transition"
-              title="Edit">
+              title="Edit" (click)="Addnew(false,data.id,data)">
               <i class="pi pi-pencil"></i>
             </button>
 
-            <button
+            <button (click)="onDelete(data)"
               class="text-red-600 hover:text-red-800 transition"
               title="Delete">
               <i class="pi pi-trash"></i>
@@ -119,3 +119,23 @@
 </tr>
             </ng-template>
 </p-table>
+
+
+<div class="intro-y box p-5 mt-5">
+  <div class="w-full flex justify-start">
+    <div class="ml-0 mr-auto">
+<p-button
+      label="Save"
+      icon="pi pi-check"
+      styleClass="border-0 shadow-md transition-all duration-300 hover:shadow-lg"
+      [style]="{
+        'background': '#22c55e',
+        'color': 'white',
+        'border-radius': '10px',
+        'padding': '10px 22px',
+        'font-weight': '600'
+      }"
+      (click)="OnSaveForms()">
+    </p-button>    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { MyReservationComponent } from './my-reservation/my-reservation.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddMedicalCenterComponent } from './dashboard/add-medical-center/add-medical-center.component';
 import { AddNewMedicalCenterComponent } from './dashboard/add-medical-center/add-new-medical-center/add-new-medical-center.component';
+import { AllReservationsComponent } from './dashboard/all-reservations/all-reservations.component';
 // const routes: Routes = [
 //   { path: '', component: AllCentersComponent },
 //   { path: "reservation", component: ReservationComponent,canActivate: [AuthGuard] },
@@ -34,7 +35,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: "addmedical", component: AddMedicalCenterComponent },
-      { path: "addnewmedical", component: AddNewMedicalCenterComponent }
+      { path: "addnewmedical", component: AddNewMedicalCenterComponent },
+      { path: "AllReservations", component: AllReservationsComponent },
     ]
   },
 

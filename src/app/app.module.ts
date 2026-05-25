@@ -13,6 +13,7 @@ import { MyReservationComponent } from './my-reservation/my-reservation.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddMedicalCenterComponent } from './dashboard/add-medical-center/add-medical-center.component';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
@@ -24,6 +25,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { AddNewMedicalCenterComponent } from './dashboard/add-medical-center/add-new-medical-center/add-new-medical-center.component';
 import { AddDoctorComponent } from './dashboard/add-medical-center/add-doctor/add-doctor.component';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { AllReservationsComponent } from './dashboard/all-reservations/all-reservations.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,7 @@ import { AddDoctorComponent } from './dashboard/add-medical-center/add-doctor/ad
     AddMedicalCenterComponent,
     AddNewMedicalCenterComponent,
     AddDoctorComponent,
+    AllReservationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,7 @@ import { AddDoctorComponent } from './dashboard/add-medical-center/add-doctor/ad
 
  // PrimeNG
     ButtonModule,
+    ConfirmDialogModule,
     DropdownModule,
     InputTextModule,
     TableModule,
@@ -58,7 +63,7 @@ import { AddDoctorComponent } from './dashboard/add-medical-center/add-doctor/ad
     MatIconModule
      
   ],
-  providers: [],
+  providers: [ConfirmationService,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

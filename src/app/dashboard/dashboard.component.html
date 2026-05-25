@@ -6,10 +6,10 @@
 
     <ul class="menu">
       <li>
-       <a routerLink="/dashboard/addmedical" routerLinkActive="active">Add Medical Center</a>
+       <a *ngIf="DoctorId===-1" routerLink="/dashboard/addmedical" routerLinkActive="active">Add Medical Center</a>
       </li>
       <li>
-        <a routerLink="/admin/users" routerLinkActive="active">Add Doctors</a>
+        <a routerLink="/dashboard/AllReservations" routerLinkActive="active">All Reservations</a>
       </li>
 
       

@@ -10,6 +10,7 @@ import { UntypedFormBuilder, Validators } from '@angular/forms';
 })
 export class AddDoctorComponent {
   DoctorForm: any;
+  oldeDoctorForm: any;
 
 
 
@@ -31,18 +32,16 @@ export class AddDoctorComponent {
           doctorPonNumber:[],
           password:['']
   
-        });  
-     //  this.loadOfferData()
+        });
+        debugger  
+       this.loadData()
     
     }
 
 
     Submit(){
 debugger
-this.DoctorForm.controls['nameDoctor'].setValue(this.DoctorForm.get('nameDoctor').value);
-this.DoctorForm.controls['email'].setValue(this.DoctorForm.get('email').value);
-this.DoctorForm.controls['doctorPonNumber'].setValue(this.DoctorForm.get('doctorPonNumber').value);
-this.DoctorForm.controls['password'].setValue(this.DoctorForm.get('password').value);
+
 
 
      this.data.PushDoctorList(this.DoctorForm.value,this.data.row,this.data.isNew);
@@ -52,4 +51,21 @@ this.DoctorForm.controls['password'].setValue(this.DoctorForm.get('password').va
     }
 
 
+
+    loadData(){
+
+      if(!this.data.isNew){
+debugger
+
+      this.oldeDoctorForm =Object.assign({}, this.data.row)
+      this.DoctorForm.patchValue(this.oldeDoctorForm);
+
+
+
+      }
+
+    }
+
+
+    
 }

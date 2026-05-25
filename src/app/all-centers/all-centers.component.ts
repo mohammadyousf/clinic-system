@@ -28,6 +28,7 @@ LodingData(){
 
  
  gotoreservation(id: number) {
+  debugger
   this.router.navigateByUrl('/reservation', { state: { id: id } });
 }
 
